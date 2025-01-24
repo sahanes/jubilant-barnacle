@@ -1,0 +1,1 @@
+fastapi\nuvicorn\npython-multipart\nopenai\nfaiss-cpu\npypdf2\npython-dotenv
