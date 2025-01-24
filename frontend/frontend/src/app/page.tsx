@@ -1,4 +1,4 @@
-const API_URL = "https://sahanes-backend-app.huggingface.co";
+const API_URL = "https://huggingface.co/spaces/sahanes/backend-app";
 
 const handleUpload = async (e) => {
   try {
