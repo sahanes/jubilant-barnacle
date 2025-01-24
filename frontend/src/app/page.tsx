@@ -42,7 +42,8 @@ export default function Home() {
  const [error, setError] = useState<string>('');
  const [question, setQuestion] = useState('');
  const [answer, setAnswer] = useState('');
- const API_URL = "http://localhost:8000";
+ // const API_URL = "http://localhost:8000"; #Local Testing
+ const API_URL = "https://huggingface.co/spaces/sahanes/backend-app";
 
  const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
    if (!e.target.files?.[0]) return;
