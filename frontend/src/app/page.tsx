@@ -50,13 +50,17 @@ export default function Home() {
  // const API_URL = "https://huggingface.co/spaces/sahanes/backend-app:7860";
  // const API_URL = "https://sahanes-backend-app.hf.space/api";
  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+ // Use template literals
+const uploadUrl = `${API_URL}/upload`;
+const askUrl = `${API_URL}/ask`;
 
  const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
    if (!e.target.files?.[0]) return;
    try {
      const formData = new FormData();
      formData.append('file', e.target.files[0]);
-     const response = await fetch(`${API_URL}/upload`, {
+     // const response = await fetch(`${API_URL}/upload`, {
+    const response = await fetch(uploadUrl, {
        method: 'POST',
        body: formData
      });
@@ -73,7 +77,8 @@ export default function Home() {
    e.preventDefault();
    if (!question) return;
    try {
-     const response = await fetch(`${API_URL}/ask`, {
+     // const response = await fetch(`${API_URL}/ask`, {
+    const response = await fetch(askUrl, {
        method: 'POST',
        headers: { 'Content-Type': 'application/json' },
        body: JSON.stringify({ text: question })
