@@ -50,7 +50,6 @@ export default function Home() {
  // const API_URL = "https://huggingface.co/spaces/sahanes/backend-app:7860";
  // const API_URL = "https://sahanes-backend-app.hf.space/api";
  const API_URL = process.env.NEXT_PUBLIC_API_URL;
- console.log('API URL:', API_URL);
  const uploadUrl = `${API_URL}/upload`;
  const askUrl = `${API_URL}/ask`;
 
@@ -90,6 +89,8 @@ export default function Home() {
      console.error(error);
    }
  };
+ console.log('API_URL:', API_URL);
+ console.log('Complete URL:', `${API_URL}/upload`);
  
 
  return (
