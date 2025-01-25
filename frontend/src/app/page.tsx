@@ -45,7 +45,8 @@ export default function Home() {
  // const API_URL = "http://localhost:8000"; #Local Testing
  // const API_URL = "https://huggingface.co/spaces/sahanes/backend-app";
  // const API_URL = "https://sahanes-backend-app.huggingface.space";  // Note: .space not .co
- const API_URL = "https://sahanes-backend-app.spaces.huggingface.co";
+ // const API_URL = "https://sahanes-backend-app.spaces.huggingface.co";
+ const API_URL = "https://sahanes-backend-app.huggingface.co:7860";
 
  const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
    if (!e.target.files?.[0]) return;
