@@ -12,8 +12,7 @@
 // const eslintConfig = [
 //   ...compat.extends("next/core-web-vitals", "next/typescript"),
 // ];
-
-// export default eslintConfig;
+/** @type {import('eslint').Config} */
 module.exports = {
   extends: ['next/core-web-vitals'],
   env: {
@@ -23,5 +22,8 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/no-unused-vars': 'error'
+  },
+  parserOptions: {
+    sourceType: 'module'
   }
 };
