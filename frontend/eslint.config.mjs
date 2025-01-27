@@ -81,7 +81,7 @@
 // };
 module.exports = {
   extends: ['next/core-web-vitals'],
-  serverModuleFormat: 'cjs',
+  // serverModuleFormat: 'cjs',
   env: {
     browser: true,
     es2021: true,
