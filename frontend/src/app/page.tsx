@@ -1074,9 +1074,13 @@ export default function Home() {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
   const [isUploading, setIsUploading] = useState(false);
+ // page.tsx
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://sahanes-backend-app.hf.space";
+  console.log('API URL:', API_URL); // Add this to debug
   
   // Use HF Space URL directly
-  const API_URL = "https://sahanes-backend-app.hf.space";
+  // const API_URL = "https://sahanes-backend-app.hf.space";
+ 
   
   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.[0]) return;
