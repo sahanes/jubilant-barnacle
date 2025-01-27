@@ -62,7 +62,22 @@
 //   }
 // };
 // .eslintrc.js
-export default {
+// export default {
+//   extends: ['next/core-web-vitals'],
+//   env: {
+//     browser: true,
+//     es2021: true,
+//     node: true
+//   },
+//   rules: {
+//     '@typescript-eslint/no-unused-vars': 'warn'
+//   },
+//   parserOptions: {
+//     sourceType: 'module',
+//     ecmaVersion: 2021
+//   }
+// };
+module.exports = {
   extends: ['next/core-web-vitals'],
   env: {
     browser: true,
