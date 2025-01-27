@@ -827,7 +827,9 @@ export default function Home() {
   const [isUploading, setIsUploading] = useState(false);
   
   // Use environment variable for API URL
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://sahanes-backend-app.hf.space" ;
+  // const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://sahanes-backend-app.hf.space" ;
+  const API_URL = "https://sahanes-backend-app.hf.space";
+
   
   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.[0]) return;
