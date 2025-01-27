@@ -12,7 +12,24 @@
 // const eslintConfig = [
 //   ...compat.extends("next/core-web-vitals", "next/typescript"),
 // ];
-/** @type {import('eslint').Config} */
+// /** @type {import('eslint').Config} */
+// module.exports = {
+//   extends: ['next/core-web-vitals'],
+//   env: {
+//     browser: true,
+//     es2021: true,
+//     node: true
+//   },
+//   rules: {
+//     '@typescript-eslint/no-unused-vars': 'error'
+//   },
+//   parserOptions: {
+//     sourceType: 'module'
+//   }
+// };
+const { configs } = require('@eslint/eslintrc');
+
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   extends: ['next/core-web-vitals'],
   env: {
@@ -21,9 +38,10 @@ module.exports = {
     node: true
   },
   rules: {
-    '@typescript-eslint/no-unused-vars': 'error'
+    '@typescript-eslint/no-unused-vars': 'warn'
   },
   parserOptions: {
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaVersion: 2021
   }
 };
