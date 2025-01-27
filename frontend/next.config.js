@@ -14,54 +14,8 @@
 // // //   }
 // // // };
 
-// // // module.exports = nextConfig;
-// // /** @type {import('next').NextConfig} */
-// // const nextConfig = {
-// //   experimental: {
-// //     appDir: true
-// //   },
-// //   async headers() {
-// //     return [
-// //       {
-// //         source: '/api/:path*',
-// //         headers: [
-// //           { key: 'Access-Control-Allow-Credentials', value: 'true' },
-// //           { key: 'Access-Control-Allow-Origin', value: '*' },
-// //           { key: 'Access-Control-Allow-Methods', value: 'GET,DELETE,PATCH,POST,PUT' },
-// //           { key: 'Access-Control-Allow-Headers', value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version' },
-// //         ],
-// //       },
-// //     ];
-// //   },
-// // }
-
-// // module.exports = nextConfig
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   async headers() {
-//     return [
-//       {
-//         // matching all API routes
-//         source: "/api/:path*",
-//         headers: [
-//           { key: "Access-Control-Allow-Credentials", value: "true" },
-//           { key: "Access-Control-Allow-Origin", value: "*" },
-//           { key: "Access-Control-Allow-Methods", value: "GET,DELETE,PATCH,POST,PUT" },
-//           { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
-//         ]
-//       }
-//     ]
-//   },
-//   // Enable experimental features if needed
-//   experimental: {
-//     appDir: true
-//   }
-// };
-
-// module.exports = nextConfig;
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Remove experimental.appDir as it's no longer needed in newer Next.js versions
+module.exports = {
   async headers() {
     return [
       {
@@ -76,5 +30,3 @@ const nextConfig = {
     ]
   }
 };
-
-export default nextConfig;
