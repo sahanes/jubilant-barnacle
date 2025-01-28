@@ -20,19 +20,54 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
  */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Add custom global styles here */
 body {
-  @apply bg-gray-100 text-gray-800 font-sans;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px; /* Larger font size for better readability */
+  line-height: 1.6; /* Improved line spacing */
+  color: #333; /* Neutral text color for better contrast */
+  background-color: #f9f9f9; /* Light background for a clean look */
+  padding: 40px 20px; /* Increased padding for a spacious layout */
+  max-width: 800px; /* Wider content area */
+  margin: 0 auto; /* Center the content */
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply font-bold;
+  font-weight: bold;
+  margin-bottom: 20px; /* Add spacing below headings */
+  color: #222; /* Slightly darker color for headings */
+}
+
+p {
+  margin-bottom: 20px; /* Add spacing between paragraphs */
+}
+
+a {
+  color: #0070f3; /* Vercel's signature blue for links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover for better UX */
 }
 
 button {
-  @apply transition duration-200 ease-in-out;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005bb5; /* Darker blue on hover */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full viewport height */
 }
