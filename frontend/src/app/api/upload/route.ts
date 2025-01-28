@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     const formData = await request.formData();
 
     // Forward the request to your Hugging Face backend
-    const response = await fetch(`${process.env.API_URL}/upload`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload`, {
       method: 'POST',
       body: formData,
     });
