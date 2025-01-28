@@ -1,6 +1,7 @@
 // *************************************************************
 'use client';
 import { useState, ChangeEvent, FormEvent } from 'react';
+import 'global.css'
 
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
