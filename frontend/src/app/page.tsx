@@ -1088,24 +1088,48 @@ export default function Home() {
     setIsUploading(true);
     setError('');
     console.log('Starting upload to:', `${API_URL}/upload`);
-    
     try {
       const formData = new FormData();
       formData.append('file', e.target.files[0]);
-      
-      const response = await fetch(`${API_URL}/upload`, {
+    
+      // Call the Next.js API route
+      const response = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
-        // No credentials or special headers needed for HF
       });
-      
+    
       console.log('Response status:', response.status);
-      
+    
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        console.error('Error data:', errorData);
-        throw new Error(errorData.detail || 'Upload failed');
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        // Handle the error appropriately
+      } else {
+        const data = await response.json();
+        console.log('Response data:', data);
       }
+    } catch (error) {
+      console.error('Fetch error:', error);
+    }
+    
+    // try {
+    //   const formData = new FormData();
+    //   formData.append('file', e.target.files[0]);
+      
+    //   const response = await fetch(`${API_URL}/upload`, {
+    //     method: 'POST',
+    //     body: formData,
+    //     // No credentials or special headers needed for HF
+    //   });
+      
+    //   console.log('Response status:', response.status);
+      
+    //   if (!response.ok) {
+    //     const errorData = await response.json().catch(() => ({}));
+    //     console.error('Error data:', errorData);
+    //     throw new Error(errorData.detail || 'Upload failed');
+    //   }
+   
       
       const data = await response.json();
       console.log('Success data:', data);
