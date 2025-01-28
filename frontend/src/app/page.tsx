@@ -1088,29 +1088,30 @@ export default function Home() {
     setIsUploading(true);
     setError('');
     console.log('Starting upload to:', `${API_URL}/upload`);
-    try {
-      const formData = new FormData();
-      formData.append('file', e.target.files[0]);
+   try {
+   const formData = new FormData();
+   formData.append('file', e.target.files[0]);
+
+   // Call the Next.js API route
+   const response = await fetch('/api/upload', {
+       method: 'POST',
+       body: formData,
+   });
+
+   console.log('Response status:', response.status);
+
+   if (!response.ok) {
+       const errorText = await response.text();
+       console.error('Error response:', errorText);
+       // Handle the error appropriately
+   } else {
+       const data = await response.json();
+       console.log('Response data:', data);
+   }
+} catch (error) {
+   console.error('Fetch error:', error);
+}
     
-      // Call the Next.js API route
-      const response = await fetch('/api/upload', {
-        method: 'POST',
-        body: formData,
-      });
-    
-      console.log('Response status:', response.status);
-    
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Error response:', errorText);
-        // Handle the error appropriately
-      } else {
-        const data = await response.json();
-        console.log('Response data:', data);
-      }
-    } catch (error) {
-      console.error('Fetch error:', error);
-    }
     
     // try {
     //   const formData = new FormData();
