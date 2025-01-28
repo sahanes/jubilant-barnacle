@@ -163,7 +163,7 @@ export default function Home() {
   setError('');
   console.log('Starting upload to:', `${API_URL}/upload`);
 
-  let response: Response | null = null; // Declare `response` outside the try block
+  let response: Response | null = null;
 
   try {
     const formData = new FormData();
@@ -192,42 +192,40 @@ export default function Home() {
   } finally {
     setIsUploading(false);
 
-    // Ensure `response` is checked for null before accessing it
     if (response && !response.ok) {
       const errorText = await response.text();
       setError(errorText);
     }
   }
 };
+const handleQuestion = async (e: FormEvent) => {
+  e.preventDefault();
+  if (!question.trim() || !file) return;
 
-  const handleQuestion = async (e: FormEvent) => {
-    e.preventDefault();
-    if (!question.trim() || !file) return;
+  try {
+    const response = await fetch(`${API_URL}/ask`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text: question.trim(),
+        filename: file.name
+      })
+    });
 
-    try {
-      const response = await fetch(`${API_URL}/ask`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          text: question.trim(),
-          filename: file.name
-        })
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.detail || 'Failed to get answer');
-      }
-
-      const data = await response.json();
-      setAnswer(data.answer);
-    } catch (error) {
-      console.error('Question error:', error);
-      setError(error instanceof Error ? error.message : 'Failed to get answer');
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.detail || 'Failed to get answer');
     }
-  };
+
+    const data = await response.json();
+    setAnswer(data.answer);
+  } catch (error) {
+    console.error('Question error:', error);
+    setError(error instanceof Error ? error.message : 'Failed to get answer');
+  }
+};
 
   return (
     <main className="p-4 max-w-2xl mx-auto">
