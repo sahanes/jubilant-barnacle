@@ -1075,7 +1075,7 @@ export default function Home() {
   const [answer, setAnswer] = useState('');
   const [isUploading, setIsUploading] = useState(false);
  // page.tsx
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://sahanes-backend-app.hf.space";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   console.log('API URL:', API_URL); // Add this to debug
   
   // Use HF Space URL directly
