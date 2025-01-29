@@ -101,19 +101,16 @@ return (
         Upload PDF
       </button>
     </div>
-
     {error && (
       <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-md border border-red-200">
         {error}
       </div>
     )}
-
     {file && !error && (
       <div className="mb-4 p-3 bg-green-50 text-green-600 rounded-md border border-green-200">
         File uploaded: {file.name}
       </div>
     )}
-
     <div className="flex flex-col items-center gap-4">
       <input
         type="text"
@@ -132,7 +129,6 @@ return (
         Ask Question
       </button>
     </div>
-
     {answer && (
       <div className="mt-6 p-4 bg-gray-50 rounded-md border text-center">
         <h2 className="font-semibold mb-2">Answer:</h2>
@@ -141,7 +137,6 @@ return (
     )}
   </main>
 );
-
 
   
 // For Top Left Plain Interface
