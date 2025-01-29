@@ -142,21 +142,95 @@ export default function Home() {
 //   </main>
 // );
 // }
-return (
-  <main className="p-4 max-w-4xl mx-auto">
-    <div className="mb-4 flex items-center gap-4 justify-center">
+// return (
+//   <main className="p-4 max-w-4xl mx-auto">
+//     <div className="mb-4 flex items-center gap-4 justify-center">
+//       <input
+//         type="file"
+//         onChange={handleUpload}
+//         accept=".pdf"
+//         className="flex-1 p-2 border rounded"
+//         disabled={isUploading}
+//       />
+//       <button
+//         className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
+//         disabled={isUploading}
+//       >
+//         Upload PDF
+//       </button>
+//     </div>
+//     {error && (
+//       <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-md border border-red-200">
+//         {error}
+//       </div>
+//     )}
+//     {file && !error && (
+//       <div className="mb-4 p-3 bg-green-50 text-green-600 rounded-md border border-green-200">
+//         File uploaded: {file.name}
+//       </div>
+//     )}
+//     <div className="flex flex-col items-center gap-4">
+//       <input
+//         type="text"
+//         value={question}
+//         onChange={(e) => setQuestion(e.target.value)}
+//         placeholder="Ask a question about the PDF..."
+//         className="p-2 border rounded w-full"
+//         disabled={!file || isUploading}
+//       />
+//       <button
+//         type="submit"
+//         className="bg-[#800080] text-white py-2 px-4 rounded hover:bg-[#4B0082] disabled:bg-gray-300 disabled:cursor-not-allowed"
+//         disabled={!file || !question.trim() || isUploading}
+//         onClick={handleQuestion}
+//       >
+//         Ask Question
+//       </button>
+//     </div>
+//     {answer && (
+//       <div className="mt-6 p-4 bg-gray-50 rounded-md border text-center">
+//         <h2 className="font-semibold mb-2">Answer:</h2>
+//         <p className="whitespace-pre-wrap">{answer}</p>
+//       </div>
+//     )}
+//   </main>
+// );
+//   }
+
+// **********************************
+  return (
+  <main className="p-4 max-w-2xl mx-auto">
+    <div className="mb-4 flex justify-center items-center">
+      <button
+        className="bg-[#800080] text-white py-2 px-4 rounded hover:bg-[#4B0082] disabled:bg-gray-300 disabled:cursor-not-allowed"
+        disabled={isUploading}
+      >
+        Upload PDF
+      </button>
+    </div>
+    <div className="mb-4 flex flex-col items-center gap-4">
       <input
         type="file"
         onChange={handleUpload}
         accept=".pdf"
-        className="flex-1 p-2 border rounded"
+        className="w-full p-2 border rounded"
         disabled={isUploading}
       />
+      <input
+        type="text"
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+        placeholder="Ask a question about the PDF..."
+        className="w-full p-2 border rounded"
+        disabled={!file || isUploading}
+      />
       <button
-        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
-        disabled={isUploading}
+        type="submit"
+        className="bg-[#800080] text-white py-2 px-4 rounded hover:bg-[#4B0082] disabled:bg-gray-300 disabled:cursor-not-allowed"
+        disabled={!file || !question.trim() || isUploading}
+        onClick={handleQuestion}
       >
-        Upload PDF
+        Ask Question
       </button>
     </div>
     {error && (
@@ -169,24 +243,6 @@ return (
         File uploaded: {file.name}
       </div>
     )}
-    <div className="flex flex-col items-center gap-4">
-      <input
-        type="text"
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
-        placeholder="Ask a question about the PDF..."
-        className="p-2 border rounded w-full"
-        disabled={!file || isUploading}
-      />
-      <button
-        type="submit"
-        className="bg-[#800080] text-white py-2 px-4 rounded hover:bg-[#4B0082] disabled:bg-gray-300 disabled:cursor-not-allowed"
-        disabled={!file || !question.trim() || isUploading}
-        onClick={handleQuestion}
-      >
-        Ask Question
-      </button>
-    </div>
     {answer && (
       <div className="mt-6 p-4 bg-gray-50 rounded-md border text-center">
         <h2 className="font-semibold mb-2">Answer:</h2>
@@ -195,9 +251,7 @@ return (
     )}
   </main>
 );
-  }
-
-  
+}
 // For Top Left Plain Interface
 //   return (
 //     <main className="p-4 max-w-2xl mx-auto">
