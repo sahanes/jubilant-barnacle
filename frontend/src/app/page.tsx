@@ -82,6 +82,7 @@ export default function Home() {
       console.error('Question error:', error);
       setError(error instanceof Error ? error.message : 'Failed to get answer');
     }
+  };
 return (
   <main className="p-4 max-w-4xl mx-auto">
     <div className="mb-4 flex items-center gap-4 justify-center">
