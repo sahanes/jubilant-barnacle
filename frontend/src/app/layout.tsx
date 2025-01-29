@@ -33,14 +33,92 @@ import "./globals.css";
 //   );
 // }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode
+// }) {
+//   return (
+//     <html lang="en">
+//       <body>{children}</body>
+//     </html>
+//   )
+// }
+import React from 'react';
+
+const Page = () => {
+  const [file, setFile] = React.useState<File | null>(null);
+  const [error, setError] = React.useState('');
+  const [question, setQuestion] = React.useState('');
+  const [isUploading, setIsUploading] = React.useState(false);
+  const [answer, setAnswer] = React.useState('');
+
+  const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Existing upload logic
+  };
+
+  const handleQuestion = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // Existing question handling logic
+  };
+
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
-}
+    <main className="p-4 max-w-2xl mx-auto">
+      <div className="mb-4 flex items-center gap-4">
+        <input
+          type="file"
+          onChange={handleUpload}
+          accept=".pdf"
+          className="flex-1 p-2 border rounded"
+          disabled={isUploading}
+        />
+        <button
+          className="bg-[#800080] text-white py-2 px-4 rounded hover:bg-[#4B0082] disabled:bg-gray-300 disabled:cursor-not-allowed"
+          disabled={isUploading}
+        >
+          Upload PDF
+        </button>
+      </div>
+
+      {error && (
+        <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-md border border-red-200">
+          {error}
+        </div>
+      )}
+
+      {file && !error && (
+        <div className="mb-4 p-3 bg-green-50 text-green-600 rounded-md border border-green-200">
+          File uploaded: {file.name}
+        </div>
+      )}
+
+      <div className="flex flex-col gap-4">
+        <input
+          type="text"
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+          placeholder="Ask a question about the PDF..."
+          className="p-2 border rounded"
+          disabled={!file || isUploading}
+        />
+        <button
+          type="submit"
+          className="bg-[#800080] text-white py-2 px-4 rounded hover:bg-[#4B0082] disabled:bg-gray-300 disabled:cursor-not-allowed"
+          disabled={!file || !question.trim() || isUploading}
+          onClick={handleQuestion}
+        >
+          Ask Question
+        </button>
+      </div>
+
+      {answer && (
+        <div className="mt-6 p-4 bg-gray-50 rounded-md border">
+          <h2 className="font-semibold mb-2">Answer:</h2>
+          <p className="whitespace-pre-wrap">{answer}</p>
+        </div>
+      )}
+    </main>
+  );
+};
+
+export default Page;
