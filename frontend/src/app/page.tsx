@@ -258,12 +258,6 @@ return (
     </main>
   );
 };
-
-export default Page;
-
-
-
-
   
 // 'use client';
 // import { useState, ChangeEvent, FormEvent } from 'react';
