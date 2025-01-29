@@ -83,6 +83,64 @@ export default function Home() {
       setError(error instanceof Error ? error.message : 'Failed to get answer');
     }
   };
+return (
+    <main className="p-4 max-w-4xl mx-auto"> {/* Adjusted width for better centering */}
+      <div className="mb-4 flex items-center gap-4 justify-center"> {/* Centered file upload components */}
+        <input
+          type="file"
+          onChange={handleUpload}
+          accept=".pdf"
+          className="flex-1 p-2 border rounded"
+          disabled={isUploading}
+        />
+        <button
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
+          disabled={isUploading}
+        >
+          Upload PDF
+        </button>
+      </div>
+
+      {error && (
+        <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-md border border-red-200">
+          {error}
+        </div>
+      )}
+
+      {file && !error && (
+        <div className="mb-4 p-3 bg-green-50 text-green-600 rounded-md border border-green-200">
+          File uploaded: {file.name}
+        </div>
+      )}
+
+      <div className="flex flex-col items-center gap-4"> {/* Centered input and button */}
+        <input
+          type="text"
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+          placeholder="Ask a question about the PDF..."
+          className="p-2 border rounded w-full"  {/* Full width within column */}
+          disabled={!file || isUploading}
+        />
+        <button
+          type="submit"
+          className="bg-maroon-600 text-white py-2 px-4 rounded hover:bg-maroon-700 disabled:bg-gray-300 disabled:cursor-not-allowed"  {/* Custom maroon color */}
+          disabled={!file || !question.trim() || isUploading}
+          onClick={handleQuestion}
+        >
+          Ask Question
+        </button>
+      </div>
+
+      {answer && (
+        <div className="mt-6 p-4 bg-gray-50 rounded-md border text-center"> {/* Centered text for answer */}
+          <h2 className="font-semibold mb-2">Answer:</h2>
+          <p className="whitespace-pre-wrap">{answer}</p>
+        </div>
+      )}
+    </main>
+  );
+}
 // For Top Left Plain Interface
 //   return (
 //     <main className="p-4 max-w-2xl mx-auto">
@@ -259,7 +317,7 @@ export default function Home() {
 //     </main>
 //   );
 // };
-return (
+/* return (
     <main className="p-4 max-w-2xl mx-auto">
       <div className="mb-4 flex items-center gap-4">
         <input
@@ -316,7 +374,7 @@ return (
       )}
     </main>
   );
-}
+} */
 
 
   
