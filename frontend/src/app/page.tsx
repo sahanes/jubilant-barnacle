@@ -198,20 +198,73 @@ export default function Home() {
 //   }
 
 // **********************************
-return (
-  <main className="container p-4 max-w-4xl mx-auto"> {/* Ensure container is styled for centering */}
-    {file && (
-      <div className="mb-4 p-3 bg-green-50 text-green-600 rounded-md border border-green-200">
+// return (
+//   <main className="container p-4 max-w-4xl mx-auto"> {/* Ensure container is styled for centering */}
+//     {file && (
+//       <div className="mb-4 p-3 bg-green-50 text-green-600 rounded-md border border-green-200">
+//         File uploaded: {file.name}
+//       </div>
+//     )}
+
+//     <form onSubmit={handleQuestion} className="flex flex-col items-center gap-4">
+//       <input 
+//         type="file"
+//         onChange={handleUpload}
+//         accept=".pdf"
+//         className="button-upload w-full p-2 border rounded" // Updated class for upload button
+//         disabled={isUploading}
+//       />
+//       <input 
+//         type="text"
+//         value={question}
+//         onChange={(e) => setQuestion(e.target.value)}
+//         placeholder="Ask a question about the PDF..."
+//         className="w-full p-2 border rounded" // Ensure full width and styling
+//         disabled={!file || isUploading}
+//       />
+      
+//       <button 
+//         type="submit"
+//         className="button-ask" // Updated class for Ask button
+//         disabled={!file || !question.trim() || isUploading}
+//       >
+//         {isUploading ? 'Uploading...' : 'Ask Question'}
+//       </button>
+//     </form>
+    
+//     {answer && (
+//       <div className="mt-6 p-4 bg-gray-50 rounded-md border">
+//         <h2 className="font-semibold mb-2">Answer:</h2>
+//         <p className="whitespace-pre-wrap">{answer}</p>
+//       </div>
+//     )}
+//   </main>
+// );
+// }
+// **********
+  return (
+  <main className="container p-4 max-w-4xl mx-auto">
+    {/* Error Message */}
+    {error && (
+      <div className="error-message">
+        {error}
+      </div>
+    )}
+
+    {/* Success Message */}
+    {file && !error && (
+      <div className="success-message">
         File uploaded: {file.name}
       </div>
     )}
 
+    {/* Form Section */}
     <form onSubmit={handleQuestion} className="flex flex-col items-center gap-4">
       <input 
         type="file"
         onChange={handleUpload}
         accept=".pdf"
-        className="button-upload w-full p-2 border rounded" // Updated class for upload button
+        className="button-upload w-full p-2 border rounded"
         disabled={isUploading}
       />
       <input 
@@ -219,19 +272,20 @@ return (
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
         placeholder="Ask a question about the PDF..."
-        className="w-full p-2 border rounded" // Ensure full width and styling
+        className="w-full p-2 border rounded"
         disabled={!file || isUploading}
       />
       
       <button 
         type="submit"
-        className="button-ask" // Updated class for Ask button
+        className="button-ask"
         disabled={!file || !question.trim() || isUploading}
       >
         {isUploading ? 'Uploading...' : 'Ask Question'}
       </button>
     </form>
     
+    {/* Answer Section */}
     {answer && (
       <div className="mt-6 p-4 bg-gray-50 rounded-md border">
         <h2 className="font-semibold mb-2">Answer:</h2>
@@ -241,7 +295,6 @@ return (
   </main>
 );
 }
-
 // ********
 //   return (
 //   <main className="p-4 max-w-2xl mx-auto">
