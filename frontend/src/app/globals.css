@@ -1,3 +1,7 @@
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px; /* Larger font size for better readability */
   line-height: 1.6; /* Improved line spacing */
   color: #333; /* Neutral text color for better contrast */
   background-color: #f9f9f9; /* Light background for a clean look */
@@ -25,18 +29,35 @@ a:hover {
   text-decoration: underline; /* Add underline on hover for better UX */
 }
 
-button {
+/* Styling for upload button with a transparent box */
+.button-upload {
   font-size: 16px;
-  padding: 10px 20px;
-  border: none;
+  padding: 12px 24px;
+  border: 2px solid #ccc; /* Visible border */
   border-radius: 5px;
-  background-color: #0070f3;
-  color: white;
+  background-color: transparent; /* Transparent background */
+  color: #333; /* Text color for visibility */
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #005bb5; /* Darker blue on hover */
+.button-upload:hover {
+  border-color: #0070f3; /* Change border color on hover */
+}
+
+/* Styling for 'Ask' button with a maroon background */
+.button-ask {
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  background-color: #800000; /* Maroon background */
+  color: white;
+  cursor: pointer;
+  margin-top: 10px; /* Space from the input field */
+}
+
+.button-ask:hover {
+  background-color: #5a0000; /* Darker maroon on hover */
 }
 
 .container {
