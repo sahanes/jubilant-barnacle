@@ -1,73 +1,3 @@
-/* /* Global styles */
-body {
-  font-family: 'Arial', sans-serif;
-  font-size: 18px; /* Larger font size for better readability */
-  line-height: 1.6; /* Improved line spacing */
-  color: #333; /* Neutral text color for better contrast */
-  background-color: #f9f9f9; /* Light background for a clean look */
-  padding: 40px 20px; /* Increased padding for a spacious layout */
-  max-width: 800px; /* Wider content area */
-  margin: 0 auto; /* Center the content */
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  margin-bottom: 20px; /* Add spacing below headings */
-  color: #222; /* Slightly darker color for headings */
-}
-
-p {
-  margin-bottom: 20px; /* Add spacing between paragraphs */
-}
-
-a {
-  color: #0070f3; /* Vercel's signature blue for links */
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline; /* Add underline on hover for better UX */
-}
-
-/* Styling for upload button with a transparent box */
-.button-upload {
-  font-size: 16px;
-  padding: 12px 24px;
-  border: 2px solid #ccc; /* Visible border */
-  border-radius: 5px;
-  background-color: transparent; /* Transparent background */
-  color: #333; /* Text color for visibility */
-  cursor: pointer;
-}
-
-.button-upload:hover {
-  border-color: #0070f3; /* Change border color on hover */
-}
-
-/* Styling for 'Ask' button with a maroon background */
-.button-ask {
-  font-size: 16px;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 5px;
-  background-color: #800000; /* Maroon background */
-  color: white;
-  cursor: pointer;
-  margin-top: 10px; /* Space from the input field */
-}
-
-.button-ask:hover {
-  background-color: #5a0000; /* Darker maroon on hover */
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh; /* Full viewport height */
-}
- */
 /* Global styles */
 body {
   font-family: 'Arial', sans-serif;
@@ -189,7 +119,6 @@ a:hover {
   border: 1px solid #4caf50;
   border-radius: 4px;
 }
-
 .header {
   text-align: center;
   margin-bottom: 1.5rem;
