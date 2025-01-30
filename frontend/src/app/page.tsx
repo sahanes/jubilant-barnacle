@@ -1,4 +1,3 @@
-// *************************************************************
 'use client';
 import { useState, ChangeEvent, FormEvent } from 'react';
 
@@ -8,43 +7,37 @@ export default function Home() {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
   const [isUploading, setIsUploading] = useState(false);
- // page.tsx
+
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  console.log('API URL:', API_URL); // Add this to debug
-  
-  // Use HF Space URL directly
-  // const API_URL = "https://sahanes-backend-app.hf.space";
- 
-  
+  console.log('API URL:', API_URL); // Debugging API URL
+
   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.[0]) return;
-    
+
     setIsUploading(true);
     setError('');
     console.log('Starting upload to:', `${API_URL}/upload`);
-    
+
     try {
       const formData = new FormData();
       formData.append('file', e.target.files[0]);
-      
+
       const response = await fetch(`${API_URL}/upload`, {
         method: 'POST',
         body: formData,
-        // No credentials or special headers needed for HF
       });
-      
+
       console.log('Response status:', response.status);
-      
+
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         console.error('Error data:', errorData);
         throw new Error(errorData.detail || 'Upload failed');
       }
-   
-      
+
       const data = await response.json();
       console.log('Success data:', data);
-      
+
       setFile(e.target.files[0]);
       setError('');
     } catch (error) {
@@ -58,24 +51,24 @@ export default function Home() {
   const handleQuestion = async (e: FormEvent) => {
     e.preventDefault();
     if (!question.trim() || !file) return;
-    
+
     try {
       const response = await fetch(`${API_URL}/ask`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           text: question.trim(),
-          filename: file.name
-        })
+          filename: file.name,
+        }),
       });
-      
+
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.detail || 'Failed to get answer');
       }
-      
+
       const data = await response.json();
       setAnswer(data.answer);
     } catch (error) {
@@ -84,6 +77,147 @@ export default function Home() {
     }
   };
 
+  return (
+    <main className="container p-4 max-w-4xl mx-auto">
+      {/* Error Message */}
+      {error && (
+        <div className="error-message">
+          {error}
+        </div>
+      )}
+
+      {/* Success Message */}
+      {file && !error && (
+        <div className="success-message">
+          File uploaded: {file.name}
+        </div>
+      )}
+
+      {/* Form Section */}
+      <form onSubmit={handleQuestion} className="flex flex-col items-center gap-4">
+        <input
+          type="file"
+          onChange={handleUpload}
+          accept=".pdf"
+          className="button-upload w-full p-2 border rounded"
+          disabled={isUploading}
+        />
+        <input
+          type="text"
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+          placeholder="Ask a question about the PDF..."
+          className="w-full p-2 border rounded"
+          disabled={!file || isUploading}
+        />
+
+        <button
+          type="submit"
+          className="button-ask"
+          disabled={!file || !question.trim() || isUploading}
+        >
+          {isUploading ? 'Uploading...' : 'Ask Question'}
+        </button>
+      </form>
+
+      {/* Answer Section */}
+      {answer && (
+        <div className="mt-6 p-4 bg-gray-50 rounded-md border">
+          <h2 className="font-semibold mb-2">Answer:</h2>
+          <p className="whitespace-pre-wrap">{answer}</p>
+        </div>
+      )}
+    </main>
+  );
+}
+
+
+// *************************************************************
+// 'use client';
+// import { useState, ChangeEvent, FormEvent } from 'react';
+
+// export default function Home() {
+//   const [file, setFile] = useState<File | null>(null);
+//   const [error, setError] = useState<string>('');
+//   const [question, setQuestion] = useState('');
+//   const [answer, setAnswer] = useState('');
+//   const [isUploading, setIsUploading] = useState(false);
+//  // page.tsx
+//   const API_URL = process.env.NEXT_PUBLIC_API_URL;
+//   console.log('API URL:', API_URL); // Add this to debug
+  
+//   // Use HF Space URL directly
+//   // const API_URL = "https://sahanes-backend-app.hf.space";
+ 
+  
+//   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+//     if (!e.target.files?.[0]) return;
+    
+//     setIsUploading(true);
+//     setError('');
+//     console.log('Starting upload to:', `${API_URL}/upload`);
+    
+//     try {
+//       const formData = new FormData();
+//       formData.append('file', e.target.files[0]);
+      
+//       const response = await fetch(`${API_URL}/upload`, {
+//         method: 'POST',
+//         body: formData,
+//         // No credentials or special headers needed for HF
+//       });
+      
+//       console.log('Response status:', response.status);
+      
+//       if (!response.ok) {
+//         const errorData = await response.json().catch(() => ({}));
+//         console.error('Error data:', errorData);
+//         throw new Error(errorData.detail || 'Upload failed');
+//       }
+   
+      
+//       const data = await response.json();
+//       console.log('Success data:', data);
+      
+//       setFile(e.target.files[0]);
+//       setError('');
+//     } catch (error) {
+//       console.error('Upload error:', error);
+//       setError(error instanceof Error ? error.message : 'Failed to upload file');
+//     } finally {
+//       setIsUploading(false);
+//     }
+//   };
+
+//   const handleQuestion = async (e: FormEvent) => {
+//     e.preventDefault();
+//     if (!question.trim() || !file) return;
+    
+//     try {
+//       const response = await fetch(`${API_URL}/ask`, {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({ 
+//           text: question.trim(),
+//           filename: file.name
+//         })
+//       });
+      
+//       if (!response.ok) {
+//         const errorData = await response.json().catch(() => ({}));
+//         throw new Error(errorData.detail || 'Failed to get answer');
+//       }
+      
+//       const data = await response.json();
+//       setAnswer(data.answer);
+//     } catch (error) {
+//       console.error('Question error:', error);
+//       setError(error instanceof Error ? error.message : 'Failed to get answer');
+//     }
+//   };
+// **********************************************************************************
 // return (
 //   <main className="p-4 max-w-4xl mx-auto">
 //     <div className="mb-4 flex items-center gap-4 justify-center">
@@ -242,59 +376,60 @@ export default function Home() {
 // );
 // }
 // **********
-  return (
-  <main className="container p-4 max-w-4xl mx-auto">
-    {/* Error Message */}
-    {error && (
-      <div className="error-message">
-        {error}
-      </div>
-    )}
+//   return (
+//   <main className="container p-4 max-w-4xl mx-auto">
+//     {/* Error Message */}
+//     {error && (
+//       <div className="error-message">
+//         {error}
+//       </div>
+//     )}
 
-    {/* Success Message */}
-    {file && !error && (
-      <div className="success-message">
-        File uploaded: {file.name}
-      </div>
-    )}
+//     {/* Success Message */}
+//     {file && !error && (
+//       <div className="success-message">
+//         File uploaded: {file.name}
+//       </div>
+//     )}
 
-    {/* Form Section */}
-    <form onSubmit={handleQuestion} className="flex flex-col items-center gap-4">
-      <input 
-        type="file"
-        onChange={handleUpload}
-        accept=".pdf"
-        className="button-upload w-full p-2 border rounded"
-        disabled={isUploading}
-      />
-      <input 
-        type="text"
-        value={question}
-        onChange={(e) => setQuestion(e.target.value)}
-        placeholder="Ask a question about the PDF..."
-        className="w-full p-2 border rounded"
-        disabled={!file || isUploading}
-      />
+//     {/* Form Section */}
+//     <form onSubmit={handleQuestion} className="flex flex-col items-center gap-4">
+//       <input 
+//         type="file"
+//         onChange={handleUpload}
+//         accept=".pdf"
+//         className="button-upload w-full p-2 border rounded"
+//         disabled={isUploading}
+//       />
+//       <input 
+//         type="text"
+//         value={question}
+//         onChange={(e) => setQuestion(e.target.value)}
+//         placeholder="Ask a question about the PDF..."
+//         className="w-full p-2 border rounded"
+//         disabled={!file || isUploading}
+//       />
       
-      <button 
-        type="submit"
-        className="button-ask"
-        disabled={!file || !question.trim() || isUploading}
-      >
-        {isUploading ? 'Uploading...' : 'Ask Question'}
-      </button>
-    </form>
+//       <button 
+//         type="submit"
+//         className="button-ask"
+//         disabled={!file || !question.trim() || isUploading}
+//       >
+//         {isUploading ? 'Uploading...' : 'Ask Question'}
+//       </button>
+//     </form>
     
-    {/* Answer Section */}
-    {answer && (
-      <div className="mt-6 p-4 bg-gray-50 rounded-md border">
-        <h2 className="font-semibold mb-2">Answer:</h2>
-        <p className="whitespace-pre-wrap">{answer}</p>
-      </div>
-    )}
-  </main>
-);
-}
+//     {/* Answer Section */}
+//     {answer && (
+//       <div className="mt-6 p-4 bg-gray-50 rounded-md border">
+//         <h2 className="font-semibold mb-2">Answer:</h2>
+//         <p className="whitespace-pre-wrap">{answer}</p>
+//       </div>
+//     )}
+//   </main>
+// );
+// }
+// **********************
 // ********
 //   return (
 //   <main className="p-4 max-w-2xl mx-auto">
