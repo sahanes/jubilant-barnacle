@@ -76,60 +76,117 @@ export default function Home() {
       setError(error instanceof Error ? error.message : 'Failed to get answer');
     }
   };
+return (
+  <main className="container">
+    {/* Uploading Message */}
+    {isUploading && (
+      <div className="uploading-message">
+        Uploading...
+      </div>
+    )}
 
-  return (
-    <main className="container p-4 max-w-4xl mx-auto">
-      {/* Error Message */}
-      {error && (
-        <div className="error-message">
-          {error}
-        </div>
-      )}
+    {/* Success Message */}
+    {file && !error && !isUploading && (
+      <div className="success-message">
+        File uploaded: {file.name}
+      </div>
+    )}
 
-      {/* Success Message */}
-      {file && !error && (
-        <div className="success-message">
-          File uploaded: {file.name}
-        </div>
-      )}
+    {/* Error Message */}
+    {error && (
+      <div className="error-message">
+        {error}
+      </div>
+    )}
 
-      {/* Form Section */}
-      <form onSubmit={handleQuestion} className="flex flex-col items-center gap-4">
-        <input
-          type="file"
-          onChange={handleUpload}
-          accept=".pdf"
-          className="button-upload w-full p-2 border rounded"
-          disabled={isUploading}
-        />
-        <input
-          type="text"
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          placeholder="Ask a question about the PDF..."
-          className="w-full p-2 border rounded"
-          disabled={!file || isUploading}
-        />
+    {/* Form Section */}
+    <form onSubmit={handleQuestion} className="flex flex-col items-center gap-4">
+      <input
+        type="file"
+        onChange={handleUpload}
+        accept=".pdf"
+        className="file-input"
+        disabled={isUploading}
+      />
+      <textarea
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+        placeholder="Ask a question about the PDF...\nYou can write up to two lines here."
+        className="query-input"
+        disabled={!file || isUploading}
+      />
+      <button
+        type="submit"
+        className="query-button"
+        disabled={!file || !question.trim() || isUploading}
+      >
+        Ask Question
+      </button>
+    </form>
 
-        <button
-          type="submit"
-          className="button-ask"
-          disabled={!file || !question.trim() || isUploading}
-        >
-          {isUploading ? 'Uploading...' : 'Ask Question'}
-        </button>
-      </form>
-
-      {/* Answer Section */}
-      {answer && (
-        <div className="mt-6 p-4 bg-gray-50 rounded-md border">
-          <h2 className="font-semibold mb-2">Answer:</h2>
-          <p className="whitespace-pre-wrap">{answer}</p>
-        </div>
-      )}
-    </main>
-  );
+    {/* Answer Section */}
+    {answer && (
+      <div className="mt-6 p-4 bg-gray-50 rounded-md border">
+        <h2 className="font-semibold mb-2">Answer:</h2>
+        <p className="whitespace-pre-wrap">{answer}</p>
+      </div>
+    )}
+  </main>
+);
 }
+//   return (
+//     <main className="container p-4 max-w-4xl mx-auto">
+//       {/* Error Message */}
+//       {error && (
+//         <div className="error-message">
+//           {error}
+//         </div>
+//       )}
+
+//       {/* Success Message */}
+//       {file && !error && (
+//         <div className="success-message">
+//           File uploaded: {file.name}
+//         </div>
+//       )}
+
+//       {/* Form Section */}
+//       <form onSubmit={handleQuestion} className="flex flex-col items-center gap-4">
+//         <input
+//           type="file"
+//           onChange={handleUpload}
+//           accept=".pdf"
+//           className="button-upload w-full p-2 border rounded"
+//           disabled={isUploading}
+//         />
+//         <input
+//           type="text"
+//           value={question}
+//           onChange={(e) => setQuestion(e.target.value)}
+//           placeholder="Ask a question about the PDF..."
+//           className="w-full p-2 border rounded"
+//           disabled={!file || isUploading}
+//         />
+
+//         <button
+//           type="submit"
+//           className="button-ask"
+//           disabled={!file || !question.trim() || isUploading}
+//         >
+//           {isUploading ? 'Uploading...' : 'Ask Question'}
+//         </button>
+//       </form>
+
+//       {/* Answer Section */}
+//       {answer && (
+//         <div className="mt-6 p-4 bg-gray-50 rounded-md border">
+//           <h2 className="font-semibold mb-2">Answer:</h2>
+//           <p className="whitespace-pre-wrap">{answer}</p>
+//         </div>
+//       )}
+//     </main>
+//   );
+// }
 
 
 // *************************************************************
