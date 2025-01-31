@@ -8,6 +8,8 @@ export default function Home() {
   const [answer, setAnswer] = useState('');
   const [isUploading, setIsUploading] = useState(false);
 
+  const fileInputRef = useRef<HTMLInputElement | null>(null); // Use a ref for the file input
+
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   console.log('API URL:', API_URL); // Debugging API URL
 
