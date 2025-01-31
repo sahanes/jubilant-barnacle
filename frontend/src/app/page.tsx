@@ -109,7 +109,7 @@ return (
       <button
         type="button"
         className="file-input"
-        onClick={() => document.getElementById('file-upload').click()}
+        onClick={() => fileInputRef.current?.click()} // Use the ref to trigger the file input
         disabled={isUploading}
       >
         Select File
