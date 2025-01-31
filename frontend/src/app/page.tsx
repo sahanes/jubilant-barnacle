@@ -121,7 +121,7 @@ return (
       <textarea
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
-        placeholder="Ask a question about the PDF...\nYou can write up to two lines here."
+        placeholder="Ask a question about the PDF..."
         className="query-input"
         disabled={!file || isUploading}
       />
