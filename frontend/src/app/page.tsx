@@ -76,6 +76,7 @@ export default function Home() {
       setError(error instanceof Error ? error.message : 'Failed to get answer');
     }
   };
+  
 return (
   <main className="container">
     {/* Uploading Message */}
