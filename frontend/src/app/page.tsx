@@ -100,14 +100,24 @@ return (
     )}
 
     {/* Form Section */}
-    <form onSubmit={handleQuestion} className="flex flex-col items-center gap-4">
+    <form onSubmit={handleQuestion} className="flex flex-col gap-4">
+      {/* File Selection Area */}
+      <label htmlFor="file-upload" className="file-label">
+        Choose File
+      </label>
       <input
+        id="file-upload"
         type="file"
         onChange={handleUpload}
         accept=".pdf"
         className="file-input"
         disabled={isUploading}
       />
+      <span className="file-chosen">
+        {file ? file.name : "No file chosen"}
+      </span>
+
+      {/* Question Input Area */}
       <textarea
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
@@ -115,6 +125,8 @@ return (
         className="query-input"
         disabled={!file || isUploading}
       />
+
+      {/* Submit Button */}
       <button
         type="submit"
         className="query-button"
@@ -133,7 +145,65 @@ return (
     )}
   </main>
 );
-}
+// return (
+//   <main className="container">
+//     {/* Uploading Message */}
+//     {isUploading && (
+//       <div className="uploading-message">
+//         Uploading...
+//       </div>
+//     )}
+
+//     {/* Success Message */}
+//     {file && !error && !isUploading && (
+//       <div className="success-message">
+//         File uploaded: {file.name}
+//       </div>
+//     )}
+
+//     {/* Error Message */}
+//     {error && (
+//       <div className="error-message">
+//         {error}
+//       </div>
+//     )}
+
+//     {/* Form Section */}
+//     <form onSubmit={handleQuestion} className="flex flex-col items-center gap-4">
+//       <input
+//         type="file"
+//         onChange={handleUpload}
+//         accept=".pdf"
+//         className="file-input"
+//         disabled={isUploading}
+//       />
+//       <textarea
+//         value={question}
+//         onChange={(e) => setQuestion(e.target.value)}
+//         placeholder="Ask a question about the PDF...\nYou can write up to two lines here."
+//         className="query-input"
+//         disabled={!file || isUploading}
+//       />
+//       <button
+//         type="submit"
+//         className="query-button"
+//         disabled={!file || !question.trim() || isUploading}
+//       >
+//         Ask Question
+//       </button>
+//     </form>
+
+//     {/* Answer Section */}
+//     {answer && (
+//       <div className="mt-6 p-4 bg-gray-50 rounded-md border">
+//         <h2 className="font-semibold mb-2">Answer:</h2>
+//         <p className="whitespace-pre-wrap">{answer}</p>
+//       </div>
+//     )}
+//   </main>
+// );
+// }
+// *****************************************
 //   return (
 //     <main className="container p-4 max-w-4xl mx-auto">
 //       {/* Error Message */}
