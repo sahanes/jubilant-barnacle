@@ -112,7 +112,7 @@ return (
         onChange={handleUpload}
         accept=".pdf"
         className="file-input"
-        onClick={() => document.getElementById('file-upload').click()}
+{/*         onClick={() => document.getElementById('file-upload').click()} */}
         disabled={isUploading}
         value="Select File" 
       />
