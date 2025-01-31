@@ -50,7 +50,7 @@ a:hover {
   color: #333;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 1rem; /* Add space below the file input */
+  margin-bottom: 1.5rem; /* Add more space below the file input */
 }
 
 .file-input:hover {
@@ -79,6 +79,7 @@ a:hover {
   border-radius: 8px;
   font-size: 1rem;
   resize: none;
+  margin-bottom: 1.5rem; /* Add more space below the question input */
 }
 
 .query-input::placeholder {
@@ -151,4 +152,12 @@ a:hover {
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 1rem;
+}
+/* Add spacing between sections */
+.file-section {
+  margin-bottom: 2rem; /* Add more space between "Select File" and "Ask a question about PDF" */
+}
+
+.question-section {
+  margin-bottom: 2rem; /* Add more space between "Ask a question about PDF" and "Ask Question" */
 }
