@@ -145,6 +145,7 @@ return (
     )}
   </main>
 );
+}
 // return (
 //   <main className="container">
 //     {/* Uploading Message */}
