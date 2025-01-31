@@ -76,7 +76,6 @@ export default function Home() {
       setError(error instanceof Error ? error.message : 'Failed to get answer');
     }
   };
-
 return (
   <main className="container">
     {/* Uploading Message */}
@@ -106,15 +105,20 @@ return (
       <label htmlFor="file-upload" className="file-label">
         Choose File
       </label>
+      <button
+        type="button"
+        className="file-input"
+        onClick={() => document.getElementById('file-upload').click()}
+        disabled={isUploading}
+      >
+        Select File
+      </button>
       <input
         id="file-upload"
         type="file"
         onChange={handleUpload}
         accept=".pdf"
-        className="file-input"
-{/*         onClick={() => document.getElementById('file-upload').click()} */}
-        disabled={isUploading}
-        value="Select File" 
+        style={{ display: 'none' }} // Hide the default file input
       />
       <span className="file-chosen">
         {file ? file.name : "No file chosen"}
@@ -148,7 +152,78 @@ return (
     )}
   </main>
 );
-}
+// return (
+//   <main className="container">
+//     {/* Uploading Message */}
+//     {isUploading && (
+//       <div className="uploading-message">
+//         Uploading...
+//       </div>
+//     )}
+
+//     {/* Success Message */}
+//     {file && !error && !isUploading && (
+//       <div className="success-message">
+//         File uploaded: {file.name}
+//       </div>
+//     )}
+
+//     {/* Error Message */}
+//     {error && (
+//       <div className="error-message">
+//         {error}
+//       </div>
+//     )}
+
+//     {/* Form Section */}
+//     <form onSubmit={handleQuestion} className="flex flex-col gap-4">
+//       {/* File Selection Area */}
+//       <label htmlFor="file-upload" className="file-label">
+//         Choose File
+//       </label>
+//       <input
+//         id="file-upload"
+//         type="file"
+//         onChange={handleUpload}
+//         accept=".pdf"
+//         className="file-input"
+//         disabled={isUploading}
+//         value="Select File" 
+//       />
+//       <span className="file-chosen">
+//         {file ? file.name : "No file chosen"}
+//       </span>
+
+//       {/* Question Input Area */}
+//       <textarea
+//         value={question}
+//         onChange={(e) => setQuestion(e.target.value)}
+//         placeholder="Ask a question about the PDF..."
+//         className="query-input"
+//         disabled={!file || isUploading}
+//       />
+
+//       {/* Submit Button */}
+//       <button
+//         type="submit"
+//         className="query-button"
+//         disabled={!file || !question.trim() || isUploading}
+//       >
+//         Ask Question
+//       </button>
+//     </form>
+
+//     {/* Answer Section */}
+//     {answer && (
+//       <div className="mt-6 p-4 bg-gray-50 rounded-md border">
+//         <h2 className="font-semibold mb-2">Answer:</h2>
+//         <p className="whitespace-pre-wrap">{answer}</p>
+//       </div>
+//     )}
+//   </main>
+// );
+// }
+// **************************************
 // return (
 //   <main className="container">
 //     {/* Uploading Message */}
