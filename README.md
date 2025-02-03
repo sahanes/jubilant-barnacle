@@ -6,6 +6,9 @@
 
 ## Backend Architecture 
 ![Backend Structure](backend-app-structure.png)
+
+
+
 🔧 Local Development Setup:
 
 Started with backend (FastAPI):
