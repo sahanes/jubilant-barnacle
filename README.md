@@ -20,6 +20,8 @@ An interactive web application that processes PDFs and enables chat-based intera
 
 ## 🚀 Quick Start
 
+💻 Local Developement:
+
 ### Backend Setup
 ```bash
 # Start FastAPI server
@@ -30,6 +32,7 @@ uvicorn backend.app.main:app --reload
 ```bash
 cd frontend
 npm install
+npx create-next-app@latest frontend --typescript --tailwind --eslint
 npm run dev
 ```
 🔑 Key Features
@@ -40,10 +43,10 @@ npm run dev
 - Cross-origin resource sharing
 - Containerized deployment
 
-🌐 Deployment
+🌐 Production Deployment:
 
 - Backend: HuggingFace Spaces
-- Frontend: Vercel
+- Frontend: Vercel with custom < page.tsx > with smooth file handling and enhanced < Global.CSS > animations (check them in this repository)
 
 🛠️ Tech Stack
 
