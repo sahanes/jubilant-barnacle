@@ -9,7 +9,8 @@ Configured CORS for cross-origin communication
 
 
 Frontend Structure (Next.js):
-bashCopymkdir frontend
+```bash
+mkdir frontend
 cd frontend
 npx create-next-app@latest frontend --typescript --tailwind --eslint
 
