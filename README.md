@@ -55,9 +55,9 @@ npm run dev
 - Backend: Deployed to HuggingFace Spaces
 - Frontend: Deployed to Vercel
 
-- Imported frontend repository
-- Configured Next.js build settings
-- Domain assigned: jubilant-barnacle-u2ap.vercel.app
+  - Imported frontend repository
+  - Configured Next.js build settings
+  - Domain assigned: jubilant-barnacle-u2ap.vercel.app
 
 Update Backend: 
 - Domain added to CORS in my backend to allow communication with my Vercel domain!
