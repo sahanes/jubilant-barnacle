@@ -13,9 +13,9 @@
 
 Started with backend (FastAPI):
 
-Implemented PDF processing & chat functionality
-Set up Docker space on HuggingFace with OpenAI integration
-Configured CORS for cross-origin communication
+- Implemented PDF processing & chat functionality
+- Set up Docker space on HuggingFace with OpenAI integration
+- Configured CORS for cross-origin communication
 
 
 Frontend Structure (Next.js):
@@ -46,12 +46,12 @@ cd frontend
 npm run dev
 ```
 
-Customized page.tsx for file handling
-Enhanced UI/UX with Tailwind CSS
+- Customized page.tsx for file handling
+- Enhanced UI/UX with Tailwind CSS
 
 
 
-#🌐 Production Deployment:
+🌐 Production Deployment:
 
 Backend: Deployed to HuggingFace Spaces
 Frontend: Deployed to Vercel
