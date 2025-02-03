@@ -9,7 +9,7 @@
 
 
 
-#🔧 Local Development Setup:
+🔧 Local Development Setup:
 
 Started with backend (FastAPI):
 
