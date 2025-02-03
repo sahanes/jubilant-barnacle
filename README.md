@@ -19,15 +19,22 @@ npx create-next-app@latest frontend --typescript --tailwind --eslint
 🧪 Local Testing Process:
 
 Backend verification:
-bashCopyuvicorn backend.app.main:app --reload
 
+```bash
+uvicorn backend.app.main:app --reload
+
+result:
 Successfully tested PDF upload via curl command
 Confirmed chunk processing (59 chunks processed)
-
+```
 
 Frontend development:
-bashCopycd frontend
+
+```
+bash
+cd frontend
 npm run dev
+```
 
 Customized page.tsx for file handling
 Enhanced UI/UX with Tailwind CSS
