@@ -12,7 +12,7 @@ Frontend Structure (Next.js):
 ```bash
 mkdir frontend
 cd frontend
-npx create-next-app@latest frontend --typescript --tailwind --eslint
+npx create-next-app@latest frontend --typescript --tailwind --eslint```
 
 
 🧪 Local Testing Process:
