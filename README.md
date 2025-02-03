@@ -9,7 +9,7 @@
 
 
 
-🔧 Local Development Setup:
+#🔧 Local Development Setup:
 
 Started with backend (FastAPI):
 
@@ -51,7 +51,7 @@ Enhanced UI/UX with Tailwind CSS
 
 
 
-🌐 Production Deployment:
+#🌐 Production Deployment:
 
 Backend: Deployed to HuggingFace Spaces
 Frontend: Deployed to Vercel
