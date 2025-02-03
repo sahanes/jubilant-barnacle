@@ -34,26 +34,26 @@ npm run dev
 ```
 🔑 Key Features
 
-PDF document processing
-AI-powered chat interactions
-Real-time document analysis
-Cross-origin resource sharing
-Containerized deployment
+- PDF document processing
+- AI-powered chat interactions
+- Real-time document analysis
+- Cross-origin resource sharing
+- Containerized deployment
 
 🌐 Deployment
 
-Backend: HuggingFace Spaces
-Frontend: Vercel
+- Backend: HuggingFace Spaces
+- Frontend: Vercel
 
 🛠️ Tech Stack
 
-Frontend: Next.js, TypeScript, TailwindCSS
-Backend: FastAPI, Python
-AI Integration: OpenAI
-Deployment: HuggingFace Spaces, Vercel
+- Frontend: Next.js, TypeScript, TailwindCSS
+- Backend: FastAPI, Python
+- AI Integration: OpenAI
+- Deployment: HuggingFace Spaces, Vercel
 
 📝 Development Notes
 
-Implemented secure file handling
-Optimized chunk processing (59 chunks)
-Configured CORS for production domains
+- Implemented secure file handling
+- Optimized chunk processing (59 chunks)
+- Configured CORS for production domains
