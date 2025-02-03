@@ -22,13 +22,13 @@ An interactive web application that processes PDFs and enables chat-based intera
 
 💻 Local Developement:
 
-### Backend Setup
+#### Backend Setup
 ```bash
 # Start FastAPI server
 uvicorn backend.app.main:app --reload
 ```
 
-# Frontend Setup
+#### Frontend Setup
 ```bash
 cd frontend
 npm install
