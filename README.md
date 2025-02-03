@@ -40,8 +40,7 @@ Confirmed chunk processing (59 chunks processed)
 
 Frontend development:
 
-```
-bash
+```bash
 cd frontend
 npm run dev
 ```
@@ -53,8 +52,8 @@ npm run dev
 
 🌐 Production Deployment:
 
-Backend: Deployed to HuggingFace Spaces
-Frontend: Deployed to Vercel
+-Backend: Deployed to HuggingFace Spaces
+-Frontend: Deployed to Vercel
 
 - Imported frontend repository
 - Configured Next.js build settings
