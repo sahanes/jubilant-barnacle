@@ -47,7 +47,7 @@ npm run dev
 ```
 
 - Customized page.tsx for file handling
-- Enhanced UI/UX with Tailwind CSS
+- Enhanced UI/UX with Global.CSS
 
 
 
